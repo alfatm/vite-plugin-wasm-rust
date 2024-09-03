@@ -57,7 +57,7 @@ export async function viteWasmPackBuild(build) {
   await process;
 
   if (process.exitCode !== 0) {
-    throw new Error(`${prefix} Build failed\n${stderr}`);
+    throw new Error(logPrefix(`Build failed\n${stderr}`));
   }
 }
 
@@ -75,19 +75,19 @@ export default function viteWasmPack(options) {
       const watcher = chokidar.watch(watch.include, { ignored: watch.exclude });
 
       watcher.on("change", async (filePath) => {
-        console.log(`${prefix} File change:`, filePath);
+        console.log(logPrefix(`File change:`), filePath);
 
         clearTimeout(timer);
         timer = setTimeout(async () => {
           try {
             await viteWasmPackBuild(options);
-            console.info(`${prefix} page full reload`);
+            console.info(logPrefix(`page full reload`));
             server.ws.send({
               type: "full-reload",
               path: "*",
             });
           } catch (error) {
-            console.info(`${prefix} page error overlay`);
+            console.info(logPrefix(`page error overlay`));
             const error_str = error.toString();
             server.ws.send({
               type: "error",
