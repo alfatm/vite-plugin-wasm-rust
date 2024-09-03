@@ -57,7 +57,7 @@ export async function viteWasmPackBuild(build) {
   await process;
 
   if (process.exitCode !== 0) {
-    throw new Error(logPrefix(`Build failed\n${stderr}`));
+    throw new Error(`Build failed\n${stderr}`);
   }
 }
 
