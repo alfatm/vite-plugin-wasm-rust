@@ -1,0 +1,30 @@
+{
+  "name": "vite-plugin-wasm-rust",
+  "version": "1.0.0",
+  "license": "(MIT OR Apache-2.0)",
+  "type": "module",
+  "main": "src/index.js",
+  "keywords": [
+    "plugin",
+    "Rust",
+    "vite",
+    "wasm-pack",
+    "wasm",
+    "WebAssembly"
+  ],
+  "engines": {
+    "node": ">=10.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfatm/vite-plugin-wasm-rust.git"
+  },
+  "author": "alfatm",
+  "homepage": "https://github.com/alfatm/vite-plugin-wasm-rust/tree/master/#readme",
+  "peerDependencies": {
+    "vite": ">=5.4.2"
+  },
+  "devDependencies": {
+    "chokidar": "^3.6.0"
+  }
+}
